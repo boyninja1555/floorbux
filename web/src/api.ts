@@ -1,4 +1,4 @@
-const URL = "http://localhost:2391"
+const URL = "https://fbxapi.flappygrant.com"
 
 export async function getBalance(number: string) {
     try {
