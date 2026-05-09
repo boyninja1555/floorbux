@@ -1,7 +1,13 @@
 {
   "scripts": {
     "devbuild": "bun build --watch src/index.ts --outfile index.js --target browser",
+    "devcss": "tailwindcss --watch -i ./styles/index.css -o index.css",
     "devserve": "bunx serve .",
-    "dev": "concurrently \"bun devbuild\" \"bun devserve\""
+    "dev": "concurrently \"bun devbuild\" \"bun devcss\" \"bun devserve\""
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.0",
+    "concurrently": "^9.2.1",
+    "tailwindcss": "^4.3.0"
   }
 }

@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-primary: #fefefe;
+  --color-secondary: #eeeeee;
+  --color-tprimary: #080808;
+  --color-tsecondary: #282828;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  @apply bg-primary text-tprimary;
+}

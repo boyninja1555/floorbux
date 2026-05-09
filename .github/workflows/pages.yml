@@ -23,8 +23,25 @@ jobs:
 
       - uses: oven-sh/setup-bun@v2
 
-      - name: Build web
-        run: bun build ./web/src/index.ts --outfile ./web/index.js --target browser --minify
+      - name: Install dependencies
+        working-directory: ./web
+        run: bun install
+
+      - name: Build JavaScript
+        working-directory: ./web
+        run: |
+          bun build ./src/index.ts \
+            --outfile ./index.js \
+            --target browser \
+            --minify
+
+      - name: Build CSS
+        working-directory: ./web
+        run: |
+          bunx tailwindcss \
+            -i ./styles/index.css \
+            -o ./index.css \
+            --minify
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
