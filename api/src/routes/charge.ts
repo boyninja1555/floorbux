@@ -1,10 +1,10 @@
 import declareRoute from "./_route"
-import { canAffordTransaction, getBalance, setBalance } from "../db"
+import { canAffordTransaction, getBalance, setBalance, userExists } from "../db"
 
 export default declareRoute(async (req, res) => {
     const { number, amount, source, } = req.body as { number?: string, amount?: number, source?: string, }
 
-    if (!number || typeof number !== "string") return {
+    if (!number || typeof number !== "string" || !userExists(number)) return {
         status: 400,
         message: "Invalid or missing number",
     }
@@ -14,7 +14,7 @@ export default declareRoute(async (req, res) => {
         message: "Invalid or missing amount",
     }
 
-    if (!source || typeof source !== "string") return {
+    if (!source || typeof source !== "string" || !userExists(source)) return {
         status: 400,
         message: "Invalid or missing source",
     }

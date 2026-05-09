@@ -1,10 +1,10 @@
 import declareRoute from "./_route"
-import { getBalance } from "../db"
+import { getBalance, userExists } from "../db"
 
 export default declareRoute(async (req, res) => {
     const { number, } = req.body as { number?: string, }
 
-    if (!number || typeof number !== "string") return {
+    if (!number || typeof number !== "string" || !userExists(number)) return {
         status: 400,
         message: "Invalid or missing number",
     }

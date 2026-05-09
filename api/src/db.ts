@@ -21,9 +21,14 @@ export function createUser(number: string) {
     stmt.run({ number, balance: 0, } as User)
 }
 
+export function userExists(number: string) {
+    const stmt = db.prepare("SELECT 1 FROM users WHERE number = :number LIMIT 1;")
+    return stmt.get({ number, }) !== null
+}
+
 export function getBalance(number: string) {
     const stmt = db.prepare("SELECT * FROM users WHERE number = :number")
-    return (stmt.get({ number, }) as User).balance
+    return ((stmt.get({ number, }) ?? { number: "", balance: -1, }) as User).balance
 }
 
 export function setBalance(number: string, balance: number) {
