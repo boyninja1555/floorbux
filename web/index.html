@@ -10,8 +10,23 @@
     <link rel="stylesheet" href="index.css" />
 </head>
 
-<body>
-    <p>Test</p>
+<body class="h-screen overflow-hidden">
+    <nav class="flex items-center justify-between px-8 bg-secondary shadow-md w-full h-16 top-0 left-0 fixed z-10">
+        <a href="#account" class="nolink flex items-center gap-2">
+            <span>Floorbux Web</span>
+        </a>
+        <ul class="flex gap-2">
+            <li><a href="#account">Account</a></li>
+            <li><a href="#pay">Pay</a></li>
+            <li><a href="#charge">Charge</a></li>
+        </ul>
+    </nav>
+
+    <section id="account" class="pt-16 h-full"></section>
+
+    <section id="pay" class="pt-16 h-full">Pay</section>
+
+    <section id="charge" class="pt-16 h-full">Charge</section>
 
     <script type="module" src="index.js"></script>
 </body>
