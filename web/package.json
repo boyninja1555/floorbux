@@ -1,0 +1,7 @@
+{
+  "scripts": {
+    "devbuild": "bun build --watch index.ts --outfile index.js --target browser",
+    "devserve": "bunx serve .",
+    "dev": "concurrently \"bun devbuild\" \"bun devserve\""
+  }
+}
