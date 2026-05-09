@@ -24,7 +24,7 @@ jobs:
       - uses: oven-sh/setup-bun@v2
 
       - name: Build web
-        run: bun build ./web/index.ts --outfile ./web/index.js --target browser --minify
+        run: bun build ./web/src/index.ts --outfile ./web/index.js --target browser --minify
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
