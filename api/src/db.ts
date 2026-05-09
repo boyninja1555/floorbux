@@ -11,7 +11,7 @@ export function dbInit() {
     db.run(`
         CREATE TABLE IF NOT EXISTS users (
             number TEXT PRIMARY KEY,
-            balance FLOAT NOT NULL
+            balance INT NOT NULL
         );
     `)
 }
